@@ -1,0 +1,13 @@
+.header-container {
+  background-color: var(--middle-blue-green);
+}
+.list-container {
+  margin: auto;
+  max-width: 1080px;
+  padding: 1.5rem 0;
+  list-style: none;
+  display: flex;
+}
+.list-item {
+  margin: 0 .4rem;
+}

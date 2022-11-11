@@ -5,10 +5,10 @@ const BubbleSort = (arr, renderer) => {
     for (let j = 0; j < arr.length - 1; j++) {
       if (arr[j] > arr[j + 1]) {
         [arr[j], arr[j + 1]] = swap(arr[j], arr[j + 1]);
-        renderer(arr);
       }
     }
   }
+  renderer(arr);
   return arr;
 };
 export { BubbleSort };
