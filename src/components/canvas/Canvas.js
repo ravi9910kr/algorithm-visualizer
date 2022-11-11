@@ -19,7 +19,6 @@ const Canvas = () => {
     canvasRef.current.width = 1000;
     canvasRef.current.height = 720;
     contextRef.current = canvasRef.current.getContext("2d");
-    console.log(contextRef.current);
   }, []);
   return (
     <>
