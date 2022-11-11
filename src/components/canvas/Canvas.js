@@ -1,15 +1,15 @@
 import React, { useRef, useEffect } from "react";
 import "./canvas.css";
 
-let renderAllElements, renderUnitElement;
+let renderAllElements, renderUnitElement, barWidth;
 
 const Canvas = ({ dimWidth, dimHeight }) => {
   const canvasRef = useRef(null);
   const contextRef = useRef(null);
   const renderCurrentState = (arr) => {
     contextRef.current.clearRect(0, 0, dimWidth, dimHeight);
-    const wid = Math.floor(dimWidth / arr.length),
-      offSet = dimWidth - wid * arr.length;
+    const wid = Math.floor(dimWidth / arr.length);
+    barWidth = wid;
     for (let i = 0; i < arr.length; i++) {
       const x0 = i * wid;
       drawUnit("#03045eff", x0, 0, wid, arr[i]);
@@ -34,5 +34,5 @@ const Canvas = ({ dimWidth, dimHeight }) => {
   );
 };
 
-export { renderAllElements, renderUnitElement };
+export { renderAllElements, renderUnitElement, barWidth };
 export default Canvas;

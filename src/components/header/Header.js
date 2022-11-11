@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import Button from "../buttons/Button";
 import { unSortedArrayGenerator } from "../../algorithms/ArrayGenerator";
-import { renderAllElements } from "../canvas/Canvas";
+import {
+  renderAllElements,
+  renderUnitElement,
+  barWidth,
+} from "../canvas/Canvas";
 import { BubbleSort } from "../../algorithms/BubbleSort";
 import "./header.css";
 
 const Header = () => {
   const [arr, setArr] = useState([]);
-  const [arrLen, setArrLen] = useState();
+  const [arrLen, setArrLen] = useState(0);
   const unorderdList = (
     <ul className="list-container">
       <li>
@@ -15,7 +19,6 @@ const Header = () => {
           style={{ display: "block" }}
           name="lenInput"
           type={"range"}
-          min={"30"}
           max={"270"}
           step={"3"}
           onChange={(e) => {
@@ -42,7 +45,7 @@ const Header = () => {
         <Button
           buttonName={"Bubble Sort"}
           onClick={(e) => {
-            BubbleSort(arr, renderAllElements);
+            BubbleSort(arr, renderUnitElement, barWidth);
           }}
         />
       </li>
