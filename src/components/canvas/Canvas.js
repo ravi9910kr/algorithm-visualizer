@@ -7,9 +7,11 @@ const Canvas = ({ dimWidth, dimHeight }) => {
   const canvasRef = useRef(null);
   const contextRef = useRef(null);
   const renderCurrentState = (arr) => {
+    contextRef.current.clearRect(0, 0, dimWidth, dimHeight);
+    const wid = Math.floor(dimWidth / arr.length),
+      offSet = dimWidth - wid * arr.length;
     for (let i = 0; i < arr.length; i++) {
-      const wid = dimWidth / arr.length,
-        x0 = i * wid;
+      const x0 = i * wid;
       drawUnit("#03045eff", x0, 0, wid, arr[i]);
     }
   };
@@ -26,7 +28,7 @@ const Canvas = ({ dimWidth, dimHeight }) => {
     contextRef.current = canvasRef.current.getContext("2d");
   }, []);
   return (
-    <div className="canvas-container" style={{ width: dimWidth }}>
+    <div className="canvas-container" style={{ width: dimWidth + 20 }}>
       <canvas className="canvas-obj" ref={canvasRef}></canvas>
     </div>
   );
