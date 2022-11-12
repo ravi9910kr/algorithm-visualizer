@@ -8,9 +8,9 @@ const App = () => {
   return (
     <div className="app-container">
       <Header />
-      <Canvas dimWidth={1080} dimHeight={720} />
+      <Canvas />
       <Footer />
-    </div>
+    </div>  
   );
 };
 
