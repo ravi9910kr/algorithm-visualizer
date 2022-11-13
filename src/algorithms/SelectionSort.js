@@ -1,10 +1,11 @@
-import { COLORS } from "../database/DataBase";
+import { COLORS, TIME } from "../database/DataBase";
 import { sleep, swap } from "./algoUtils";
 
 const SelectionSort = async (arr, renderer, barWidth) => {
   let start = -1,
     ind = 0,
-    len = arr.length;
+    len = arr.length,
+    waitTime = TIME / len;
   for (let i = 0; i < len; i++) {
     let minValue = 720;
     for (let j = start + 1; j < len; j++) {
@@ -12,7 +13,7 @@ const SelectionSort = async (arr, renderer, barWidth) => {
         minValue = arr[j];
         ind = j;
         renderer(COLORS.RUST, j * barWidth, 0, barWidth, arr[j]);
-        await sleep(10);
+        await sleep(waitTime);
         renderer(COLORS.FRENCHVIOLET, ind * barWidth, 0, barWidth, minValue);
       }
     }

@@ -1,8 +1,9 @@
 import { swap, sleep } from "./algoUtils";
-import { COLORS } from "../database/DataBase";
+import { COLORS, TIME } from "../database/DataBase";
 const { RUST, VIRIDIANGREEN, FRENCHVIOLET } = COLORS;
 const BubbleSort = async (arr, renderer, barWidth) => {
-  const len = arr.length;
+  const len = arr.length,
+    waitTime = TIME / len;
   for (let i = 0; i < len; i++) {
     for (let j = 0; j < len - i; j++) {
       if (arr[j] > arr[j + 1]) {
@@ -10,7 +11,7 @@ const BubbleSort = async (arr, renderer, barWidth) => {
         renderer(COLORS.RUST, (j + 1) * barWidth, 0, barWidth, arr[j + 1]);
       }
       renderer(FRENCHVIOLET, j * barWidth, 0, barWidth, arr[j]);
-      await sleep(20);
+      await sleep(waitTime);
     }
     renderer(
       VIRIDIANGREEN,

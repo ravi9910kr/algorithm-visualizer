@@ -1,11 +1,12 @@
 import { sleep } from "./algoUtils";
-import { COLORS } from "../database/DataBase";
+import { COLORS, TIME } from "../database/DataBase";
 const BinarySearch = async (arr, target, renderer, barWidth) => {
+  const waitTime = TIME / arr.length;
   console.log(arr, target);
   let lo = 0,
     hi = arr.length - 1;
   while (lo <= hi) {
-    await sleep(300);
+    await sleep(waitTime);
     const mid = lo + Math.floor((hi - lo) / 2);
     renderer(COLORS.RUST, barWidth * mid, 0, barWidth, arr[mid]);
     if (arr[mid] > target) {
@@ -13,8 +14,7 @@ const BinarySearch = async (arr, target, renderer, barWidth) => {
     } else if (arr[mid] < target) {
       lo = mid + 1;
     } else {
-      console.log(mid);
-      renderer(COLORS.BLUEGREEN , barWidth * mid, 0, barWidth, arr[mid]);
+      renderer(COLORS.BLUEGREEN, barWidth * mid, 0, barWidth, arr[mid]);
       return mid;
     }
   }
