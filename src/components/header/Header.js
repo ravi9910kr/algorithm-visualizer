@@ -7,6 +7,7 @@ import {
   barWidth,
 } from "../canvas/Canvas";
 import { BubbleSort } from "../../algorithms/BubbleSort";
+import { LinearSearch } from "../../algorithms/linearSearch";
 import "./header.css";
 
 const Header = () => {
@@ -38,6 +39,14 @@ const Header = () => {
             const unSrArr = unSortedArrayGenerator(arrLen);
             setArr(unSrArr);
             renderAllElements(unSrArr);
+          }}
+        />
+      </li>
+      <li className="list-item">
+        <Button
+          buttonName={"linear search"}
+          onClick={(e) => {
+            LinearSearch(arr, 396, renderUnitElement, barWidth);
           }}
         />
       </li>
