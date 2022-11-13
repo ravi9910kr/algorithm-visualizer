@@ -11,6 +11,7 @@ import { LinearSearch } from "../../algorithms/linearSearch";
 import { BinarySearch } from "../../algorithms/BinarySearch";
 import "./header.css";
 import { SelectionSort } from "../../algorithms/SelectionSort";
+import InsertionSort from "../../algorithms/InsertionSort";
 
 const Header = () => {
   const [arr, setArr] = useState([]);
@@ -87,6 +88,15 @@ const Header = () => {
           onClick={(e) => {
             renderAllElements(arr);
             SelectionSort(arr, renderUnitElement, barWidth);
+          }}
+        />
+      </li>
+      <li className="list-item">
+        <Button
+          buttonName={"Insertion Sort"}
+          onClick={(e) => {
+            renderAllElements(arr);
+            InsertionSort (arr, renderUnitElement, barWidth);
           }}
         />
       </li>
