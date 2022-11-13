@@ -47,6 +47,7 @@ const Header = () => {
         <Button
           buttonName={"linear search"}
           onClick={(e) => {
+            renderAllElements(arr);
             LinearSearch(
               arr,
               arr[Math.floor(Math.random() * arrLen)],
@@ -60,14 +61,10 @@ const Header = () => {
         <Button
           buttonName={"binary search"}
           onClick={(e) => {
-            const arrSort = arr.sort((a, b) => {
-              return a - b;
-            });
-            setArr(arrSort);
-            renderAllElements(arrSort);
+            renderAllElements(arr);
             BinarySearch(
-              arrSort,
-              arrSort[Math.floor(Math.random() * arrLen)],
+              arr,
+              arr[Math.floor(Math.random() * arrLen)],
               renderUnitElement,
               barWidth
             );
@@ -78,6 +75,7 @@ const Header = () => {
         <Button
           buttonName={"Bubble Sort"}
           onClick={(e) => {
+            renderAllElements(arr);
             BubbleSort(arr, renderUnitElement, barWidth);
           }}
         />
