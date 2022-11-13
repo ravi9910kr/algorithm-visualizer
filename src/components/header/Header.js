@@ -8,6 +8,7 @@ import {
 } from "../canvas/Canvas";
 import { BubbleSort } from "../../algorithms/BubbleSort";
 import { LinearSearch } from "../../algorithms/linearSearch";
+import { BinarySearch } from "../../algorithms/BinarySearch";
 import "./header.css";
 
 const Header = () => {
@@ -46,7 +47,30 @@ const Header = () => {
         <Button
           buttonName={"linear search"}
           onClick={(e) => {
-            LinearSearch(arr, 396, renderUnitElement, barWidth);
+            LinearSearch(
+              arr,
+              arr[Math.floor(Math.random() * arrLen)],
+              renderUnitElement,
+              barWidth
+            );
+          }}
+        />
+      </li>
+      <li className="list-item">
+        <Button
+          buttonName={"binary search"}
+          onClick={(e) => {
+            const arrSort = arr.sort((a, b) => {
+              return a - b;
+            });
+            setArr(arrSort);
+            renderAllElements(arrSort);
+            BinarySearch(
+              arrSort,
+              arrSort[Math.floor(Math.random() * arrLen)],
+              renderUnitElement,
+              barWidth
+            );
           }}
         />
       </li>
