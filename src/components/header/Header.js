@@ -12,6 +12,7 @@ import { BinarySearch } from "../../algorithms/BinarySearch";
 import "./header.css";
 import { SelectionSort } from "../../algorithms/SelectionSort";
 import InsertionSort from "../../algorithms/InsertionSort";
+import { HeapSort } from "../../algorithms/HeapSort";
 
 const Header = () => {
   const [arr, setArr] = useState([]);
@@ -96,7 +97,16 @@ const Header = () => {
           buttonName={"Insertion Sort"}
           onClick={(e) => {
             renderAllElements(arr);
-            InsertionSort (arr, renderUnitElement, barWidth);
+            InsertionSort(arr, renderUnitElement, barWidth);
+          }}
+        />
+      </li>
+      <li className="list-item">
+        <Button
+          buttonName={"make heap"}
+          onClick={(e) => {
+            renderAllElements(arr);
+            HeapSort(arr, renderUnitElement, barWidth);
           }}
         />
       </li>
